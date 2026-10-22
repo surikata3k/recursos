@@ -37,3 +37,8 @@
 .md-typeset table:not([class]) td:nth-child(2) {
   width: 100%;
 }
+
+/* La web ocupa tot l'ample de la finestra */
+.md-grid {
+  max-width: initial;
+}
