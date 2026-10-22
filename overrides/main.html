@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  <script>
+    /* Aplica la preferència de l'índex de la dreta abans de pintar la pàgina,
+       per evitar que aparegui i desaparegui en carregar. Per defecte, amagat. */
+    try {
+      if (localStorage.getItem("recursos-index-visible") === "1") {
+        document.documentElement.classList.add("mostra-index");
+      }
+    } catch (e) {}
+  </script>
+{% endblock %}
