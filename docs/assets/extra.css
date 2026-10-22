@@ -43,32 +43,33 @@
   max-width: initial;
 }
 
-/* Índex de la dreta ("En aquesta pàgina"): amagat per defecte en pantalles grans.
-   El botó de la capçalera (assets/panell-index.js) afegeix la classe .mostra-index. */
+/* Panells laterals: es mostren o s'amaguen amb els botons de la capçalera
+   (assets/panell-index.js). Només s'aplica en pantalles grans; en les petites
+   tots dos panells ja van dins del menú desplegable. */
 @media screen and (min-width: 76.25em) {
+  html.amaga-menu .md-sidebar--primary,
   html:not(.mostra-index) .md-sidebar--secondary {
     display: none;
   }
 }
 
-.recursos-boto-index {
-  margin: 0 0.2rem;
+.recursos-boto-panell {
+  margin: 0 0.1rem;
   padding: 0.4rem;
   border: 0;
   background: none;
   color: inherit;
   cursor: pointer;
 }
-.recursos-boto-index[aria-pressed="false"] {
-  opacity: 0.7;
+.recursos-boto-panell[aria-pressed="false"] {
+  opacity: 0.6;
 }
-.recursos-boto-index:hover {
+.recursos-boto-panell:hover {
   opacity: 1;
 }
 
-/* En pantalles petites l'índex ja va dins del menú: el botó no cal */
 @media screen and (max-width: 76.234375em) {
-  .md-header__button.recursos-boto-index:not([hidden]) {
+  .md-header__button.recursos-boto-panell:not([hidden]) {
     display: none;
   }
 }

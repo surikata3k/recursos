@@ -3,9 +3,13 @@
 {% block extrahead %}
   {{ super() }}
   <script>
-    /* Aplica la preferència de l'índex de la dreta abans de pintar la pàgina,
-       per evitar que aparegui i desaparegui en carregar. Per defecte, amagat. */
+    /* Aplica les preferències dels panells laterals abans de pintar la pàgina,
+       per evitar que apareguin i desapareguin en carregar.
+       Per defecte: menú de l'esquerra visible, índex de la dreta amagat. */
     try {
+      if (localStorage.getItem("recursos-menu-amagat") === "1") {
+        document.documentElement.classList.add("amaga-menu");
+      }
       if (localStorage.getItem("recursos-index-visible") === "1") {
         document.documentElement.classList.add("mostra-index");
       }
