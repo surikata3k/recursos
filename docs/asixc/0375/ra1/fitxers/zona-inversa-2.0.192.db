@@ -1,0 +1,8 @@
+; Zona inversa d'exemple per a la xarxa 192.0.2.0/24
+; Mòdul 0375 Serveis de xarxa i internet · RA1
+$TTL 3600
+$ORIGIN 2.0.192.in-addr.arpa.
+@   IN SOA ns1.exemple.cat. admin.exemple.cat. ( 2026102001 7200 3600 1209600 3600 )
+    IN NS  ns1.exemple.cat.
+20  IN PTR www.exemple.cat.
+30  IN PTR mail.exemple.cat.

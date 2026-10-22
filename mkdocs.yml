@@ -1,0 +1,102 @@
+site_name: Recursos d'informàtica
+site_description: Material didàctic de cicles formatius d'informàtica (SMX, ASIX i ASIX Ciberseguretat)
+site_url: https://surikata3k.github.io/recursos/
+copyright: Material didàctic de cicles formatius d'informàtica
+
+theme:
+  name: material
+  language: ca
+  icon:
+    logo: material/school
+  favicon: assets/favicon.svg
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Mode fosc
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Mode clar
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - navigation.path
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - toc.follow
+
+extra_css:
+  - assets/extra.css
+
+hooks:
+  - hooks/llistats.py
+
+plugins:
+  - search:
+      lang: es
+  - awesome-nav
+  - tags
+  # Ha d'anar després de "search": treu del cercador el text de les pàgines protegides.
+  - encryptcontent:
+      title_prefix: ""
+      summary: "Contingut protegit"
+      placeholder: "Contrasenya"
+      password_button: true
+      password_button_text: "Desbloqueja"
+      decryption_failure_message: "Contrasenya incorrecta"
+      encryption_info_message: "Aquest contingut està protegit. Demana la contrasenya al professor."
+      search_index: encrypted
+      remember_keys: true
+      threshold_warning_min_entropy: 0
+      # Xifra també l'índex lateral perquè no es vegin els títols de les seccions.
+      encrypted_something:
+        md-nav--secondary: [nav, class]
+      # Les contrasenyes no són al repositori: es llegeixen de variables
+      # d'entorn (secrets de GitHub). El segon valor només s'usa en local.
+      password_inventory:
+        solucions: !ENV [CONTRASENYA_SOLUCIONS, "proves-local"]
+        examens: !ENV [CONTRASENYA_EXAMENS, "proves-local-examens"]
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      title: En aquesta pàgina
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra:
+  generator: false
