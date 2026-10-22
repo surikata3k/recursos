@@ -1,10 +1,10 @@
 ---
-title: "RA1 · Resolució de noms (DNS)"
+title: "RA1 · Administra serveis de resolució de noms, analitzant-los i garantint la seguretat del servei"
 description: "Administra serveis de resolució de noms, analitzant-los i garantint la seguretat del servei."
 nivell: ra
 ---
 
-# RA1 · Resolució de noms (DNS)
+# RA1 · Administra serveis de resolució de noms, analitzant-los i garantint la seguretat del servei
 
 !!! abstract "Resultat d'aprenentatge 1"
 
@@ -22,6 +22,19 @@ nivell: ra
     8. Implementa solucions de servidors de noms en adreces IP dinàmiques.
     9. Realitza transferències de zona entre dos o més servidors.
     10. Documenta els procediments d'instal·lació i configuració.
+
+## Continguts
+
+**Instal·lació i administració de serveis de noms de dominis**
+
+- Sistemes de noms plans i jeràrquics.
+- Resolució de noms. Procés de resolució de noms de domini.
+- Servidors arrel i dominis de primer nivell i successius.
+- Zones primàries i secundàries. Transferències de zona.
+- Tipus de registre.
+- Servidors de noms en adreces IP dinàmiques.
+
+<small>Font: currículum del CFGS d'Administració de sistemes informàtics en xarxa, perfil professional Ciberseguretat (continguts orientatius del mòdul 0375).</small>
 
 ## Material
 

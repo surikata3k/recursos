@@ -349,7 +349,7 @@ cicles:
       - codi: "0375"
         nom: "Serveis de xarxa i internet"
         ras:
-          - curt: "Resolució de noms (DNS)"
+          - curt: "Administra serveis de resolució de noms, analitzant-los i garantint la seguretat del servei"
             text: "Administra serveis de resolució de noms, analitzant-los i garantint la seguretat del servei."
             criteris:
               - "Identifica i descriu escenaris en els quals sorgeix la necessitat d'un servei de resolució de noms."
