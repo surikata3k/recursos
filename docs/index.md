@@ -27,8 +27,4 @@ Tot el material dels mòduls en un sol lloc: apunts, pràctiques, activitats i f
 
     Prem ++s++ o ++slash++ en qualsevol pàgina per obrir el cercador i escriu el que busques.
 
-!!! tip "Material protegit"
-
-    Les pàgines amb :material-lock-outline: (com les solucions) demanen una contrasenya. El professor te la donarà quan toqui.
-
 </div>

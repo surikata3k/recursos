@@ -37,27 +37,3 @@
 .md-typeset table:not([class]) td:nth-child(2) {
   width: 100%;
 }
-
-/* Formulari de contrasenya de les pàgines protegides */
-#mkdocs-encrypted-content,
-.md-typeset #mkdocs-decrypt-form {
-  margin-top: 1rem;
-}
-.md-typeset #mkdocs-content-password {
-  padding: 0.5rem 0.75rem;
-  border: 1px solid var(--md-default-fg-color--lighter);
-  border-radius: 0.4rem;
-  background: var(--md-code-bg-color);
-  color: var(--md-default-fg-color);
-  font-size: 0.8rem;
-}
-.md-typeset #mkdocs-decrypt-button {
-  margin-left: 0.4rem;
-  padding: 0.5rem 1rem;
-  border: 0;
-  border-radius: 0.4rem;
-  background: var(--md-primary-fg-color);
-  color: var(--md-primary-bg-color);
-  font-size: 0.8rem;
-  cursor: pointer;
-}

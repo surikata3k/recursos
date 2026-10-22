@@ -49,26 +49,6 @@ plugins:
       lang: es
   - awesome-nav
   - tags
-  # Ha d'anar després de "search": treu del cercador el text de les pàgines protegides.
-  - encryptcontent:
-      title_prefix: ""
-      summary: "Contingut protegit"
-      placeholder: "Contrasenya"
-      password_button: true
-      password_button_text: "Desbloqueja"
-      decryption_failure_message: "Contrasenya incorrecta"
-      encryption_info_message: "Aquest contingut està protegit. Demana la contrasenya al professor."
-      search_index: encrypted
-      remember_keys: true
-      threshold_warning_min_entropy: 0
-      # Xifra també l'índex lateral perquè no es vegin els títols de les seccions.
-      encrypted_something:
-        md-nav--secondary: [nav, class]
-      # Les contrasenyes no són al repositori: es llegeixen de variables
-      # d'entorn (secrets de GitHub). El segon valor només s'usa en local.
-      password_inventory:
-        solucions: !ENV [CONTRASENYA_SOLUCIONS, "proves-local"]
-        examens: !ENV [CONTRASENYA_EXAMENS, "proves-local-examens"]
 
 markdown_extensions:
   - abbr

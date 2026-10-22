@@ -29,19 +29,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Construeix la web
-        env:
-          CONTRASENYA_SOLUCIONS: ${{ secrets.CONTRASENYA_SOLUCIONS }}
-          CONTRASENYA_EXAMENS: ${{ secrets.CONTRASENYA_EXAMENS }}
-        run: |
-          if [ -z "$CONTRASENYA_SOLUCIONS" ]; then
-            echo "::error::Falta el secret CONTRASENYA_SOLUCIONS (Settings → Secrets and variables → Actions)."
-            exit 1
-          fi
-          if [ -z "$CONTRASENYA_EXAMENS" ]; then
-            echo "::error::Falta el secret CONTRASENYA_EXAMENS (Settings → Secrets and variables → Actions)."
-            exit 1
-          fi
-          mkdocs build --strict
+        run: mkdocs build --strict
 
       - uses: actions/upload-pages-artifact@v3
         with:

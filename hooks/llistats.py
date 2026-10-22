@@ -18,7 +18,7 @@ TIPUS = {
     "teoria": (":material-book-open-variant:", "Teoria"),
     "practica": (":material-console:", "Pràctica"),
     "activitat": (":material-pencil-outline:", "Activitat"),
-    "solucions": (":material-lock-outline:", "Solucions"),
+    "solucions": (":material-check-circle-outline:", "Solucions"),
     "recurs": (":material-paperclip:", "Recurs"),
 }
 
@@ -144,8 +144,6 @@ def _llistat_material(carpeta: Path) -> str:
     for f in fitxers:
         meta = _meta(f)
         icona, etiqueta = TIPUS.get(str(meta.get("tipus", "")).lower(), TIPUS["recurs"])
-        if meta.get("level") or meta.get("password"):
-            etiqueta += " · protegit amb contrasenya"
         enllac = f.relative_to(carpeta).as_posix()
         linia = f"- {icona} [{meta['title']}]({enllac}) <small>· {etiqueta}</small>"
         if meta.get("description"):

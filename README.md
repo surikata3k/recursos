@@ -49,7 +49,7 @@ Les pàgines de cicle, mòdul i RA ja existeixen per a tots els teus mòduls, am
 
 3. Escriu el contingut en Markdown i puja el canvi.
 
-Mira el material del RA1 de 0375 (`docs/asixc/0375/ra1/`) com a exemple: hi tens teoria, pràctiques, solucions protegides i fitxers descarregables.
+Mira el material del RA1 de 0375 (`docs/asixc/0375/ra1/`) com a exemple: hi tens teoria, pràctiques i fitxers descarregables.
 
 ### Etiquetes (temàtiques)
 
@@ -86,33 +86,6 @@ Tipus d'avís disponibles: `note`, `abstract`, `info`, `tip`, `example`, `questi
 
 ---
 
-## Contingut protegit amb contrasenya
-
-Afegeix `level:` a la capçalera:
-
-```yaml
-level: solucions   # o: examens
-```
-
-La pàgina es publica **xifrada**: l'alumnat la veu al menú, però el text només apareix si escriu la contrasenya, i no surt al cercador.
-
-Les contrasenyes **no són al repositori**. Es guarden com a *secrets* de GitHub:
-
-**Settings → Secrets and variables → Actions → New repository secret**
-
-| Secret | Per a les pàgines amb |
-| --- | --- |
-| `CONTRASENYA_SOLUCIONS` | `level: solucions` |
-| `CONTRASENYA_EXAMENS` | `level: examens` |
-
-Per canviar una contrasenya (per exemple, a final de curs), edita el secret i torna a publicar (pestanya **Actions → Publica la web → Run workflow**).
-
-> **Important:** el xifratge protegeix la web, però els fitxers `.md` originals tenen les solucions en clar. Per això el repositori ha de ser **privat**. Publicar GitHub Pages des d'un repositori privat requereix GitHub Pro, que és gratuït per a docents amb [GitHub Education](https://education.github.com/teachers).
->
-> Els fitxers adjunts (PDF, ZIP…) **no es xifren**: posa les solucions dins la pàgina, no com a fitxer.
-
----
-
 ## Afegir un mòdul o un cicle nou
 
 1. Afegeix-lo a `eines/curriculum.yml` (codi, nom i RA amb els seus criteris).
@@ -129,8 +102,7 @@ Per canviar una contrasenya (per exemple, a final de curs), edita el secret i to
 ## Configuració inicial (només un cop)
 
 1. **Settings → Pages → Build and deployment → Source:** tria **GitHub Actions**.
-2. Crea els dos secrets de contrasenya (vegeu més amunt).
-3. Puja el contingut a `main`. A la pestanya **Actions** veuràs com es publica.
+2. Puja el contingut a `main`. A la pestanya **Actions** veuràs com es publica.
 
 ## Veure la web al teu ordinador abans de publicar
 
@@ -141,4 +113,4 @@ pip install -r requirements.txt
 mkdocs serve
 ```
 
-Obre http://127.0.0.1:8000. En local, la contrasenya de les solucions és `proves-local`.
+Obre http://127.0.0.1:8000.
