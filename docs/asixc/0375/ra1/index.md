@@ -23,18 +23,16 @@ nivell: ra
     9. Realitza transferències de zona entre dos o més servidors.
     10. Documenta els procediments d'instal·lació i configuració.
 
-## Continguts
+??? info "Continguts"
 
-**Instal·lació i administració de serveis de noms de dominis**
+    **Instal·lació i administració de serveis de noms de dominis**
 
-- Sistemes de noms plans i jeràrquics.
-- Resolució de noms. Procés de resolució de noms de domini.
-- Servidors arrel i dominis de primer nivell i successius.
-- Zones primàries i secundàries. Transferències de zona.
-- Tipus de registre.
-- Servidors de noms en adreces IP dinàmiques.
-
-<small>Font: currículum del CFGS d'Administració de sistemes informàtics en xarxa, perfil professional Ciberseguretat (continguts orientatius del mòdul 0375).</small>
+    1. Sistemes de noms plans i jeràrquics.
+    2. Resolució de noms. Procés de resolució de noms de domini.
+    3. Servidors arrel i dominis de primer nivell i successius.
+    4. Zones primàries i secundàries. Transferències de zona.
+    5. Tipus de registre.
+    6. Servidors de noms en adreces IP dinàmiques.
 
 ## Material
 
