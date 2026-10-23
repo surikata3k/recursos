@@ -12,8 +12,7 @@ Cada cop que puges un canvi a la branca `main`, GitHub reconstrueix i publica la
 
 ```text
 docs/
-├── index.md                  ← portada
-├── temes.md                  ← índex per temàtiques (etiquetes)
+├── index.md                  ← portada: catàleg amb cercador i filtres
 ├── smx/                      ← un cicle
 │   ├── index.md
 │   └── 0224/                 ← un mòdul (pel codi)
@@ -27,7 +26,9 @@ docs/
 └── asixc/
 ```
 
-Les pàgines de cicle, mòdul i RA ja existeixen per a tots els teus mòduls, amb els RA i criteris oficials. **Els llistats es generen sols**: quan deixes un fitxer `.md` a la carpeta d'un RA, apareix al menú, a la pàgina del RA i als comptadors del mòdul.
+Les pàgines de cicle, mòdul i RA ja existeixen per a tots els teus mòduls, amb els RA i criteris oficials. **Els llistats es generen sols**: quan deixes un fitxer `.md` a la carpeta d'un RA, apareix al catàleg de la portada (amb els seus filtres), a la pàgina del RA i als comptadors del mòdul.
+
+Cada pàgina és d'una sola columna: a dalt hi ha l'enllaç «← Índex» amb la ruta (cicle › mòdul › RA), les etiquetes i, si la pàgina té prou apartats, un índex generat a partir dels títols `##` i `###`.
 
 ---
 
@@ -53,7 +54,7 @@ Mira el material del RA1 de 0375 (`docs/asixc/0375/ra1/`) com a exemple: hi tens
 
 ### Etiquetes (temàtiques)
 
-Les etiquetes de `tags:` creen l'índex de [Temàtiques](https://surikata3k.github.io/recursos/temes/). Intenta reutilitzar sempre les mateixes: `DNS`, `Serveis de xarxa`, `Ciberseguretat`, `Línia d'ordres`, `Wireshark`, `Linux`, `Bases de dades`…
+Les etiquetes de `tags:` es mostren a les targetes i creen els filtres per temàtica de la portada (els filtres per mòdul es generen sols a partir de la carpeta). Intenta reutilitzar sempre les mateixes: `DNS`, `Serveis de xarxa`, `Ciberseguretat`, `Línia d'ordres`, `Wireshark`, `Linux`, `Bases de dades`…
 
 ### Fitxers descarregables
 

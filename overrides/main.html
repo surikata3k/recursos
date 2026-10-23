@@ -1,18 +1,87 @@
 {% extends "base.html" %}
 
-{% block extrahead %}
-  {{ super() }}
+{#- Disseny d'una sola columna, sense capçalera, pestanyes ni menús laterals.
+    Les dades de la ruta, el títol i les etiquetes les prepara hooks/disseny.py. -#}
+
+{% block fonts %}{% endblock %}
+
+{% block header %}
   <script>
-    /* Aplica les preferències dels panells laterals abans de pintar la pàgina,
-       per evitar que apareguin i desapareguin en carregar.
-       Per defecte: menú de l'esquerra visible, índex de la dreta amagat. */
-    try {
-      if (localStorage.getItem("recursos-menu-amagat") === "1") {
-        document.documentElement.classList.add("amaga-menu");
+    /* Colors clars o foscos segons la preferència del sistema */
+    (function () {
+      var fosc = window.matchMedia("(prefers-color-scheme: dark)");
+      function aplica() {
+        document.body.setAttribute("data-md-color-scheme", fosc.matches ? "slate" : "default");
       }
-      if (localStorage.getItem("recursos-index-visible") === "1") {
-        document.documentElement.classList.add("mostra-index");
-      }
-    } catch (e) {}
+      aplica();
+      if (fosc.addEventListener) fosc.addEventListener("change", aplica);
+    })();
   </script>
+  {#- El JavaScript del tema necessita aquest element, però no es mostra -#}
+  <header class="md-header" data-md-component="header" hidden></header>
+{% endblock %}
+{% block tabs %}{% endblock %}
+{% block site_nav %}{% endblock %}
+
+{% block container %}
+  {%- set meta = page.meta if page and page.meta else {} -%}
+  <div class="md-content" data-md-component="content">
+    <article class="md-content__inner md-typeset{% if meta._portada %} portada{% endif %}">
+      {% block content %}
+        {%- set meta = page.meta if page and page.meta else {} -%}
+        {% if not meta._portada %}
+          <p class="backlink">
+            <a href="{{ nav.homepage.url | url }}">← Índex</a>
+            {%- for m in meta._molles or [] %}
+              <span class="backlink__sep">›</span>
+              <a href="{{ m.url | url }}" title="{{ m.titol }}">{{ m.etiqueta }}</a>
+            {%- endfor %}
+          </p>
+        {% endif %}
+
+        <h1 class="titol-pagina">{{ meta._h1 or (page.title if page else config.site_name) }}</h1>
+
+        {% if meta._modul or meta.tags %}
+          <div class="card-etiquetes card-etiquetes--pagina">
+            {% if meta._tipus %}<span class="card-etiqueta card-etiqueta-tipus">{{ meta._tipus }}</span>{% endif %}
+            {% for t in meta.tags or [] %}<span class="card-etiqueta">{{ t }}</span>{% endfor %}
+            {% if meta._modul %}<span class="card-etiqueta card-etiqueta-modul" title="{{ meta._modul.titol }}">{{ meta._modul.etiqueta }}</span>{% endif %}
+          </div>
+        {% endif %}
+
+        {%- set ns = namespace(n=0) -%}
+        {%- for arrel in page.toc if page -%}
+          {%- set ns.n = ns.n + (arrel.children | length) -%}
+        {%- endfor -%}
+        {% if page and ns.n >= 2 and not (meta.hide and "toc" in meta.hide) %}
+          <nav id="TOC" class="index-pagina" aria-label="Índex de la pàgina">
+            <p class="index-pagina__titol">Índex</p>
+            <ul>
+              {% for arrel in page.toc %}
+                {% for h2 in arrel.children %}
+                  <li class="index-pagina__h2"><a href="{{ h2.url }}">{{ h2.title }}</a>
+                    {% if h2.children %}
+                      <ul>
+                        {% for h3 in h2.children %}
+                          <li class="index-pagina__h3"><a href="{{ h3.url }}">{{ h3.title }}</a></li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              {% endfor %}
+            </ul>
+          </nav>
+        {% endif %}
+
+        {{ page.content if page }}
+      {% endblock %}
+    </article>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  <footer class="peu">
+    <a href="{{ nav.homepage.url | url }}">{{ config.site_name }}</a> · {{ build_date_utc.year }}
+  </footer>
 {% endblock %}

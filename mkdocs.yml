@@ -6,6 +6,7 @@ copyright: Material didàctic de cicles formatius d'informàtica
 theme:
   name: material
   custom_dir: overrides
+  font: false
   language: ca
   icon:
     logo: material/school
@@ -26,33 +27,23 @@ theme:
         icon: material/weather-sunny
         name: Mode clar
   features:
-    - navigation.tabs
-    - navigation.sections
-    - navigation.indexes
-    - navigation.top
-    - navigation.footer
-    - navigation.path
-    - search.suggest
-    - search.highlight
     - content.code.copy
     - content.code.annotate
     - content.tabs.link
-    - toc.follow
 
 extra_css:
-  - assets/extra.css
+  - assets/fonts.css
+  - assets/estil.css
 
 extra_javascript:
-  - assets/panell-index.js
+  - assets/cataleg.js
 
 hooks:
   - hooks/llistats.py
+  - hooks/disseny.py
 
 plugins:
-  - search:
-      lang: es
   - awesome-nav
-  - tags
 
 markdown_extensions:
   - abbr
